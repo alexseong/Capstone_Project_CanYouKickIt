@@ -145,6 +145,17 @@ def get_week_number(df):
     return df
 
 
+def get_prev_wk_success(df):
+    a = df.groupby('week_num')['outcome'].sum()
+    b = pd.DataFrame(a)
+    b['week_num'] = b.index
+    b.loc[0, 'prevweek'] = b.loc[0, 'week_num']
+    for i in range(1, len(b)):
+        b.loc[i, 'prevweek_success'] = b.loc[i-1, 'outcome']
+    df = df.join(b['prevweek_success'], on='week_num', rsuffix='_prev')
+    return df
+
+
 def get_outcome(df):
     df['outcome'] = df.status == 'successful'
     df = df.drop('status', axis=1)
@@ -192,5 +203,6 @@ def us_only(df):
     df = cat_name(df)
     df = dummify_catnames(col_name, df)
     df = get_week_number(df)
+    df = get_prev_wk_success(df)
     df = get_outcome(df)
     df = us_only(df)
