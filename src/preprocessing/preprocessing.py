@@ -35,7 +35,7 @@ def read_file(filepath):
 
 def remove_features(df):
     df = df.drop('table_id', axis=1)
-    df = df.drop('robot_id', axis = 1)
+    df = df.drop('robot_id', axis=1)
 
     return df
 
@@ -88,8 +88,8 @@ def get_interval(feature_list, df):
     Create interval features from existing temporal features
     '''
     convert_datetime(feature_list, df)
-    df['days_to_launch'] = (df['launched_at'] - df['created_at']).map(lambda x:x.days)
-    df['proj_live_days'] = (df['state_changed_at'] - df['launched_at']).map(lambda x:x.days)
+    df['days_to_launch'] = (df['launched_at'] - df['created_at']).map(lambda x: x.days)
+    df['proj_live_days'] = (df['state_changed_at'] - df['launched_at']).map(lambda x: x.days)
 
     return df
 
@@ -99,7 +99,7 @@ def get_subscriptn_rate(df):
     Create subscription rate,the ratio bewteen the amount pledged and project goal
     '''
     df['subscription_rate'] = (df['pledged'] / df['goal']).round(4)
-    df['oversubscribed'] = df['subscription_rate'] >=1.
+    df['oversubscribed'] = df['subscription_rate'] >= 1.
 
     return df
 
@@ -108,8 +108,8 @@ def get_dayofweek(df):
     '''
     Create feature day of week. Monday=0, Sunday=6
     '''
-    df['launched_dow'] = df['launched_at'].map(lambda x:x.weekday())
-    df['deadline_dow']= df['deadline'].map(lambda x:x.weekday())
+    df['launched_dow'] = df['launched_at'].map(lambda x: x.weekday())
+    df['deadline_dow'] = df['deadline'].map(lambda x: x.weekday())
 
     return df
 
@@ -119,7 +119,7 @@ def cat_name(df):
     Create feature of high level categories
     '''
     y = df['cat_slug'].str.split('/')
-    df['cat_name'] = y.map(lambda x:x[0])
+    df['cat_name'] = y.map(lambda x: x[0])
 
     return df
 
