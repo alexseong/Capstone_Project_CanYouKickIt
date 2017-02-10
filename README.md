@@ -39,6 +39,6 @@ My final classification model is an ensemble model made up of:
 
 # Future Work
 
-1. A proportion of campaign descriptions were displayed in images and therefore not included in the TF-IDF analysis. Going forward I would use optical character recognition tools to detect text within the images.
+1. A portion of campaign descriptions were displayed in images and therefore not included in the TF-IDF analysis. Going forward I would use optical character recognition tools to detect text within the images.
 2. Sentiment analysis of user comments
-3. This would require more effort, but it would be interesting to see how successful campaigns fare post funding. Is there more demand for the product or does Kickstarter fully reflect and exhaust the true demand for the product.
+3. This would require more effort, but it would be interesting to see how successful campaigns fare post-funding. Is there more demand for the product or has Kickstarter fully reflected and exhausted the true demand for the product?
