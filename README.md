@@ -1,11 +1,11 @@
 <img src="img/Capstone_CanYouKickIt_imgs.001.png" align="middle"/>
 
 # Motivation
-Kickstarter is a crowdfunding platform with the goal of bringing creative projects to life. The thing is, very few campaigns go on to be successfully funded. These successful campaigns can take many forms, e.g. [the Potato Salad campaign](https://www.kickstarter.com/projects/zackdangerbrown/potato-salad). This project aims to understand what contributes to the success of a campaign. While there are many factors that contribute to the success of a campaign, this capstone project will focus on analyzing campaign content and structure.
+Kickstarter is a crowdfunding platform with the goal of bringing creative projects to life. The thing is, very few campaigns go on to be successfully funded. These successful campaigns can take many and sometimes unusual forms, e.g. [Potato Salad campaign](https://www.kickstarter.com/projects/zackdangerbrown/potato-salad). This project aims to understand what contributes to the success of a campaign. While there are many factors that contribute to the success of a campaign, this capstone project will focus on analyzing campaign content and structure.
 <img src="img/Capstone_CanYouKickIt_imgs.002.png" align="middle"/>
 
 # Data Collection
-I leveraged the dataset from  https://webrobots.io/kickstarter-datasets/ and enhanced this it by scraping more features from Kickstarter.com. Python's Pandas package was used for data cleaning and storage. This dataset contains 80,000 projects between 2013-2016. Sample features as shown below.
+I leveraged the dataset from  https://webrobots.io/kickstarter-datasets/ and enhanced this it by scraping more features from Kickstarter.com. Data was cleaned using Python's Pandas package and stored in MongoDB. This dataset contains 80,000 projects between 2013-2016. Sample features as shown below.
 
 <img src="img/Capstone_CanYouKickIt_imgs.003.png" align="middle"/>
 
@@ -22,12 +22,13 @@ The model confirm a few things we know to be true intuitively.
 
 
 ## Text Modeling
-I performed TF-IDF "bag of words" analysis of the project descriptions. I found that successful projects tend to show more tech related words, inferring that certain types of tech projects were more likely to be successfully funded. As success factors might vary by category, I performed TF-IDF at the category level.
+I performed TF-IDF "bag of words" analysis of the project descriptions. I found that successful projects tend to show more tech related words, inferring that certain types of tech projects were more likely to be successfully funded. As success factors might vary by category, TF-IDF was performed at the categorical level.
 
-<img src="img/Capstone_CanYouKickIt_imgs.005.png" align="middle"/>
+<img src="img/Capstone_CanYouKickIt_imgs.006.png" align="middle"/>
 
 I then used Non-Negative Matrix Factorization to model latent topics in the project descriptions and looked at the top terms associated with each latent topic. Based on the top terms by topic, I found that these topics had very interpretable divisions in themes.
-(insert chart)
+
+<img src="img/Capstone_CanYouKickIt_imgs.007.png" align="middle"/>
 
 My final classification model is an ensemble model made up of:
   - Metadata Random Forest model
