@@ -5,7 +5,7 @@ Kickstarter is a crowdfunding platform with the goal of bringing creative projec
 <img src="img/Capstone_CanYouKickIt_imgs.002.png" align="middle"/>
 
 # Data Collection
-I leveraged the dataset from  https://webrobots.io/kickstarter-datasets/ and enhanced this by scraping more features from Kickstarter.com. Data was cleaned using Python's Pandas package and stored in MongoDB. This dataset contains 80,000 projects between 2013-2016. An example of the campaign features scraped is shown below.
+I leveraged the dataset from  https://webrobots.io/kickstarter-datasets/ and enhanced this by scraping more features from Kickstarter.com. Data was cleaned using Python's Pandas package and stored in MongoDB. This dataset contains 80,000 projects between 2013-2016. An example of some of the campaign features scraped is shown below.
 
 <img src="img/Capstone_CanYouKickIt_imgs.003.png" align="middle"/>
 
@@ -26,7 +26,7 @@ I performed TF-IDF "bag of words" analysis of the project descriptions. I found 
 
 <img src="img/Capstone_CanYouKickIt_imgs.007.png" align="middle"/>
 
-I then used Non-Negative Matrix Factorization to model latent topics in the project descriptions and looked at the top terms associated with each latent topic. Based on the top terms by topic, I found that these topics had very interpretable divisions in themes.
+I then used Non-Negative Matrix Factorization to model latent topics in the project descriptions and looked at the top terms associated with each latent topic. Based on the top terms by topic, I found that these topics had very interpretable divisions in themes. This is illustrated below for projects in the Film category.
 
 <img src="img/Capstone_CanYouKickIt_imgs.009.png" align="middle"/>
 
