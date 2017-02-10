@@ -1,6 +1,7 @@
 # Capstone_Project_CanYouKickIt
 
-The aim of this project is to find out what features make a Kickstarter campaign successful.
+The aim of this project is to find out what features make a Kickstarter campaign successful. This Data Science capstone project was built in 2 weeks.
+<img src="img/Capstone_CanYouKickIt_imgs.002.png" align="middle"/>
 
 # Data Collection
 I leveraged the dataset from  https://webrobots.io/kickstarter-datasets/ and enhanced this it by scraping more features from Kickstarter.com. I used Python's Pandas package for data cleaning and storage. This dataset contains 80,000 projects between 2013-2016.
