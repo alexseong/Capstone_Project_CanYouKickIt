@@ -22,7 +22,6 @@ client = MongoClient()
 db = client['ksdb']
 collection = db['ksdata']
 
-
 # Load array of project_id,founder_id, project_url, founder_url, rewards_url
 ls = pd.read_csv('id_url_list.csv', dtype=object, header=None)
 id_url_list = ls.values

@@ -7,7 +7,6 @@ def get_project(url_project):
     '''
     Requests and returns project html.
     '''
-
     content = requests.get(url_project).content
     soup = BeautifulSoup(content, 'html.parser')
     r = requests.get(url_project)
@@ -49,6 +48,7 @@ def get_pledges(rewards):
 
     return pledge_list
 
+
 def has_project_video(project):
     '''
     Returns True if project contains a main video.
@@ -62,6 +62,7 @@ def has_project_video(project):
         else:
             return False
 
+
 def count_images(project):
     '''
     Counts the number of pictures present in project page.
@@ -69,6 +70,7 @@ def count_images(project):
     images = project.find_all('img', attrs={'class': 'fit'})
 
     return len(images) + 1
+
 
 def count_emb_videos(project):
     '''
@@ -104,6 +106,7 @@ def get_tag(project):
     except:
         None
 
+
 def get_pledges_backed(rewards):
     '''
     Returns a list of strings containing the number of backers for each pledge amounts.
@@ -116,7 +119,6 @@ def get_pledges_backed(rewards):
         backers_list.append(backer.contents[0].split()[0])
 
     return backers_list
-
 
 
 def get_full_desc(project):

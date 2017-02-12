@@ -6,10 +6,8 @@ import dill as pickle
 from time import time
 from datetime import datetime
 from unidecode import unidecode
-
 from sklearn.feature_extraction.text import TfidfVectorizer, TfidfTransformer, CountVectorizer
 from sklearn.decomposition import NMF
-
 import string
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
@@ -22,13 +20,11 @@ class TopicModeling(object):
     def __init__(self):
         pass
 
-
     def clean_documents(self, descriptions):
         documents = [unidecode(document).lower().translate(None, string.punctuation)
                     for document in descriptions]
         documents = [re.sub(r'\d+', '', doc) for doc in documents]
         return documents
-
 
     def get_tf(self, descriptions):
         '''
@@ -43,7 +39,6 @@ class TopicModeling(object):
 
         return countvec, word_counts_matrix
 
-
     def get_tfidf(self, descriptions):
         '''
         INPUT: array of project descriptions
@@ -57,7 +52,6 @@ class TopicModeling(object):
 
         return tfidfvec, tfidf_matrix
 
-
     def get_nmf_results(self, tfidf_matrix, n_topics=20):
         '''
         INPUT: tfidf_matrix, number of latent topics
@@ -69,13 +63,11 @@ class TopicModeling(object):
 
         return W, H, nmf
 
-
     def get_Wtest(self, full_tf, X_test_d, nmf):
         full_tf_matrix_test = full_tf.transform(X_test_d)
         W_test = nmf.transform(full_tf_matrix_test)
 
         return W_test, full_tf_matrix_test
-
 
     def get_success_pct_per_topic(W,y):
         '''
@@ -92,7 +84,6 @@ class TopicModeling(object):
         group['pct'] = group.outcome/group.total
 
         return group
-
 
     def describe_nmf_results(full_tf, H, W,y_train, n_top_words = 10):
         '''
